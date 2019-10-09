@@ -88,19 +88,24 @@ Iterates array item from last iterated item times index.
 
 ```python
 root = jsonic.Jsonic("[1, 2, 3, 4]")
-print(array.iter()) # 1
-print(array.iter()) # 2
-print(array.iter(1)) # 4
+print(array.iterItem()) # 1
+print(array.iterItem()) # 2
+print(array.iterItem(1)) # 4
+print(array.iterItem()) # None
+array.reset()
+print(array.iterItem()) # 1
 ```
 
 #### Method: iterKey(key)
 Iterates object key from last iterated object.
 ```python
 root = jsonic.Jsonic("{a: 1, b: 2, c: 3, d: 4}")
-print(array.iter("a")) # "a"
-print(array.iter("b")) # "b"
-print(array.iter("c")) # "c"
-print(array.iter("b")) # None
+print(array.iterKey("a")) # 1
+print(array.iterKey("b")) # 2
+print(array.iterKey("c")) # 3
+print(array.iterKey("b")) # None
+array.reset()
+print(array.iterKey("b")) # 2
 ```
 
 #### Method: reset()
