@@ -16,7 +16,7 @@
 
 #include "lib/jsonic/jsonic.h"
 
-#define PYJSONIC_VERSION "1.1"
+#define PYJSONIC_VERSION "1.2"
 
 typedef struct {
     PyObject_HEAD

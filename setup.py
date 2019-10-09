@@ -16,7 +16,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 jsonic = Extension(
-    "pyjsonic",
+    "jsonic",
     sources = [
         "python-jsonic.c",
         "lib/jsonic/jsonic.c"
@@ -25,7 +25,7 @@ jsonic = Extension(
 
 setup(
     name = "pyjsonic",
-    version = "1.1",
+    version = "1.2",
     description = "Python bindings for Jsonic JSON reader library.",
     long_description = long_description,
     long_description_content_type='text/markdown',
