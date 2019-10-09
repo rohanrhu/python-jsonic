@@ -4,7 +4,7 @@ Python bindings for [Jsonic](https://github.com/rohanrhu/jsonic) JSON reader lib
 ## Install
 PIP:
 ```bash
-pip install jsonic
+pip install pyjsonic
 ```
 
 Git:

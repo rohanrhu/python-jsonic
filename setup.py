@@ -11,7 +11,7 @@
 from distutils.core import setup, Extension
 
 jsonic = Extension(
-    "jsonic",
+    "pyjsonic",
     sources = [
         "python-jsonic.c",
         "lib/jsonic/jsonic.c"
@@ -19,7 +19,7 @@ jsonic = Extension(
 )
 
 setup(
-    name = "jsonic",
+    name = "pyjsonic",
     version = "1.0",
     description = "Python bindings for Jsonic library.",
     ext_modules = [jsonic]
