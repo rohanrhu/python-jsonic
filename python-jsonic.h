@@ -16,7 +16,7 @@
 
 #include "lib/jsonic/jsonic.h"
 
-#define PYJSONIC_VERSION "1.5"
+#define PYJSONIC_VERSION "1.6"
 
 typedef struct {
     PyObject_HEAD
@@ -26,9 +26,9 @@ typedef struct {
     PyObject_HEAD
     jsonic_node_t* node;
     jsonic_node_t* from;
-    PyObject* attr_json;
+    PyObject* json;
+    char* json_ascii;
     int json_type;
-    char* json;
 } PyJsonic_JsonicObject;
 
 int
@@ -117,7 +117,7 @@ PyJsonicModule = {
 
 static PyMemberDef
 PyJsonic_JsonicType_members[] = {
-   {"json", T_OBJECT, offsetof(PyJsonic_JsonicObject, attr_json), 0, "JSON String"},
+   {"json", T_OBJECT, offsetof(PyJsonic_JsonicObject, json), 0, "JSON String"},
    {"type", T_INT, offsetof(PyJsonic_JsonicObject, json_type), 0, "JSON Type"},
    {NULL, 0, 0, 0, NULL}
 };

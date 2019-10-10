@@ -25,7 +25,7 @@ jsonic = Extension(
 
 setup(
     name = "pyjsonic",
-    version = "1.5",
+    version = "1.6",
     description = "Python bindings for Jsonic JSON reader library.",
     long_description = long_description,
     long_description_content_type='text/markdown',
