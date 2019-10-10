@@ -59,8 +59,11 @@ Returns JSON root's value if `root.type` is not an array or object. Otherwise it
 root = jsonic.Jsonic("1234")
 print(root.root()) # 1234
 
-root = jsonic.Jsonic("foo")
-print(root.root()) # "foo"
+root = jsonic.Jsonic("\"foo\"")
+print(root.root()) # foo
+
+root = jsonic.Jsonic("true")
+print(root.root()) # True
 
 root = jsonic.Jsonic("null")
 print(root.root()) # jsonic.Null
@@ -99,7 +102,7 @@ print(array.iterItem()) # 1
 #### Method: iterKey(key)
 Iterates object key from last iterated object.
 ```python
-root = jsonic.Jsonic("{a: 1, b: 2, c: 3, d: 4}")
+root = jsonic.Jsonic("{\"a\": 1, \"b\": 2, \"c\": 3, \"d\": 4}")
 print(array.iterKey("a")) # 1
 print(array.iterKey("b")) # 2
 print(array.iterKey("c")) # 3
