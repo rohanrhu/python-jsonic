@@ -51,6 +51,7 @@ PyJsonic_JsonicType_dealloc(
 ) {
     jsonic_free_addr(self->node);
     jsonic_free_addr(self->from);
+    free(self->json);
     Py_TYPE(self)->tp_free((PyObject *) self);
 }
 
