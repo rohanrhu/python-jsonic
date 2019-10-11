@@ -67,7 +67,7 @@ PyJsonic_JsonicType_init(
     }
 
     Py_INCREF(self->json);
-    self->json_ascii = PyBytes_AS_STRING(PyUnicode_AsEncodedString(self->json, "utf-8", "asdasdads"));
+    self->json_ascii = PyBytes_AS_STRING(PyUnicode_AsEncodedString(self->json, "utf-8", NULL));
 
     if (is_root) {
         self->node = jsonic_get_root(self->json_ascii);
@@ -137,7 +137,7 @@ PyJsonic_JsonicType_key(
     if (node->type == JSONIC_NODE_TYPE_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(si)", self->json_ascii, 0)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -147,7 +147,7 @@ PyJsonic_JsonicType_key(
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(si)", self->json_ascii, 0)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -193,7 +193,7 @@ PyJsonic_JsonicType_item(
     if (node->type == JSONIC_NODE_TYPE_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(s)", self->json_ascii)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -202,7 +202,7 @@ PyJsonic_JsonicType_item(
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(s)", self->json_ascii)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -265,7 +265,7 @@ PyJsonic_JsonicType_iterItem(
     if (node->type == JSONIC_NODE_TYPE_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(s)", self->json_ascii)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -274,7 +274,7 @@ PyJsonic_JsonicType_iterItem(
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(s)", self->json_ascii)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -323,7 +323,7 @@ PyJsonic_JsonicType_iterKey(
     if (node->type == JSONIC_NODE_TYPE_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(s)", self->json_ascii)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
@@ -332,7 +332,7 @@ PyJsonic_JsonicType_iterKey(
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
-            Py_BuildValue("(s)", self->json_ascii)
+            Py_BuildValue("(Oi)", self->json, 0)
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
