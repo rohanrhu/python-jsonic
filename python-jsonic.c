@@ -197,6 +197,7 @@ PyJsonic_JsonicType_item(
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
+        ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
@@ -206,6 +207,7 @@ PyJsonic_JsonicType_item(
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
+        ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
     } else if (node->type == JSONIC_NODE_TYPE_STRING) {
@@ -269,6 +271,7 @@ PyJsonic_JsonicType_iterItem(
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
+        ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
@@ -278,6 +281,7 @@ PyJsonic_JsonicType_iterItem(
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
+        ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
     } else if (node->type == JSONIC_NODE_TYPE_STRING) {
@@ -327,6 +331,7 @@ PyJsonic_JsonicType_iterKey(
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
+        ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
     } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
@@ -336,6 +341,7 @@ PyJsonic_JsonicType_iterKey(
         );
 
         ((PyJsonic_JsonicObject *) pyNode)->node = node;
+        ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
     } else if (node->type == JSONIC_NODE_TYPE_STRING) {
