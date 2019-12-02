@@ -3,3 +3,4 @@ project.sublime-workspace
 build
 MANIFEST
 dist/
+*.egg-info

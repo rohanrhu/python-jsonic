@@ -1,4 +1,4 @@
-#
+# -*- coding: utf-8 -*-
 # Python bindings for jsonic library.
 #
 # https://github.com/rohanrhu/python-jsonic
