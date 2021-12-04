@@ -35,7 +35,7 @@ PyJsonic_from_file(PyObject *self, PyObject* args) {
     if (access(file_name, F_OK) != -1) {
 #endif
         char* json = jsonic_from_file(file_name);
-
+    
         return PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(si)", json, 1)

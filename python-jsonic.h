@@ -16,7 +16,7 @@
 
 #include "lib/jsonic/jsonic.h"
 
-#define PYJSONIC_VERSION "1.9"
+#define PYJSONIC_VERSION "1.10"
 
 typedef struct {
     PyObject_HEAD
@@ -140,7 +140,7 @@ static PyTypeObject PyJsonic_JsonicType = {
     .tp_basicsize = sizeof(PyJsonic_JsonicObject),
     .tp_itemsize = 0,
     .tp_dealloc = (destructor) PyJsonic_JsonicType_dealloc,
-    .tp_print = 0,
+    .tp_vectorcall_offset = 0,
     .tp_getattr = 0,
     .tp_setattr = 0,
     .tp_as_async = 0,
@@ -191,7 +191,7 @@ static PyTypeObject PyJsonic_NullType = {
     .tp_basicsize = sizeof(PyJsonic_NullObject),
     .tp_itemsize = 0,
     .tp_dealloc = 0,
-    .tp_print = 0,
+    .tp_vectorcall_offset = 0,
     .tp_getattr = 0,
     .tp_setattr = 0,
     .tp_as_async = 0,

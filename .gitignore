@@ -1,6 +1,6 @@
-project.sublime-project
-project.sublime-workspace
+.vscode
+*.code-workspace
 build
-MANIFEST
 dist/
+MANIFEST
 *.egg-info
