@@ -94,17 +94,17 @@ PyJsonic_JsonicType_root(
 
     PyObject* pyNode;
 
-    if (self->node->type == JSONIC_NODE_TYPE_OBJECT) {
+    if (self->node->type == JSONIC_OBJECT) {
         Py_RETURN_NONE;
-    } else if (self->node->type == JSONIC_NODE_TYPE_ARRAY) {
+    } else if (self->node->type == JSONIC_ARRAY) {
         Py_RETURN_NONE;
-    } else if (self->node->type == JSONIC_NODE_TYPE_STRING) {
+    } else if (self->node->type == JSONIC_STRING) {
         return PyUnicode_FromString(self->node->val);
-    } else if (self->node->type == JSONIC_NODE_TYPE_NUMBER) {
+    } else if (self->node->type == JSONIC_NUMBER) {
         return PyFloat_FromDouble(atof(self->node->val));
-    } else if (self->node->type == JSONIC_NODE_TYPE_BOOLEAN) {
+    } else if (self->node->type == JSONIC_BOOLEAN) {
         return PyBool_FromLong(self->node->val[0] == '1');
-    } else if (self->node->type == JSONIC_NODE_TYPE_NULL) {
+    } else if (self->node->type == JSONIC_NULL) {
         return PyObject_CallObject((PyObject *) &PyJsonic_NullType, NULL);
     }
 
@@ -134,7 +134,7 @@ PyJsonic_JsonicType_key(
 
     PyObject* pyNode;
 
-    if (node->type == JSONIC_NODE_TYPE_OBJECT) {
+    if (node->type == JSONIC_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -144,7 +144,7 @@ PyJsonic_JsonicType_key(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
+    } else if (node->type == JSONIC_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -154,13 +154,13 @@ PyJsonic_JsonicType_key(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_STRING) {
+    } else if (node->type == JSONIC_STRING) {
         return PyUnicode_FromString(node->val);
-    } else if (node->type == JSONIC_NODE_TYPE_NUMBER) {
+    } else if (node->type == JSONIC_NUMBER) {
         return PyFloat_FromDouble(atof(node->val));
-    } else if (node->type == JSONIC_NODE_TYPE_BOOLEAN) {
+    } else if (node->type == JSONIC_BOOLEAN) {
         return PyBool_FromLong(node->val[0] == '1');
-    } else if (node->type == JSONIC_NODE_TYPE_NULL) {
+    } else if (node->type == JSONIC_NULL) {
         return PyObject_CallObject((PyObject *) &PyJsonic_NullType, NULL);
     }
 
@@ -190,7 +190,7 @@ PyJsonic_JsonicType_item(
 
     PyObject* pyNode;
 
-    if (node->type == JSONIC_NODE_TYPE_OBJECT) {
+    if (node->type == JSONIC_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -200,7 +200,7 @@ PyJsonic_JsonicType_item(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
+    } else if (node->type == JSONIC_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -210,13 +210,13 @@ PyJsonic_JsonicType_item(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_STRING) {
+    } else if (node->type == JSONIC_STRING) {
         return PyUnicode_FromString(node->val);
-    } else if (node->type == JSONIC_NODE_TYPE_NUMBER) {
+    } else if (node->type == JSONIC_NUMBER) {
         return PyFloat_FromDouble(atof(node->val));
-    } else if (node->type == JSONIC_NODE_TYPE_BOOLEAN) {
+    } else if (node->type == JSONIC_BOOLEAN) {
         return PyBool_FromLong(node->val[0] == '1');
-    } else if (node->type == JSONIC_NODE_TYPE_NULL) {
+    } else if (node->type == JSONIC_NULL) {
         return PyObject_CallObject((PyObject *) &PyJsonic_NullType, NULL);
     }
 
@@ -264,7 +264,7 @@ PyJsonic_JsonicType_iterItem(
 
     PyObject* pyNode;
 
-    if (node->type == JSONIC_NODE_TYPE_OBJECT) {
+    if (node->type == JSONIC_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -274,7 +274,7 @@ PyJsonic_JsonicType_iterItem(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
+    } else if (node->type == JSONIC_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -284,13 +284,13 @@ PyJsonic_JsonicType_iterItem(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_STRING) {
+    } else if (node->type == JSONIC_STRING) {
         return PyUnicode_FromString(node->val);
-    } else if (node->type == JSONIC_NODE_TYPE_NUMBER) {
+    } else if (node->type == JSONIC_NUMBER) {
         return PyFloat_FromDouble(atof(node->val));
-    } else if (node->type == JSONIC_NODE_TYPE_BOOLEAN) {
+    } else if (node->type == JSONIC_BOOLEAN) {
         return PyBool_FromLong(node->val[0] == '1');
-    } else if (node->type == JSONIC_NODE_TYPE_NULL) {
+    } else if (node->type == JSONIC_NULL) {
         return PyObject_CallObject((PyObject *) &PyJsonic_NullType, NULL);
     }
 
@@ -324,7 +324,7 @@ PyJsonic_JsonicType_iterKey(
 
     PyObject* pyNode;
 
-    if (node->type == JSONIC_NODE_TYPE_OBJECT) {
+    if (node->type == JSONIC_OBJECT) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -334,7 +334,7 @@ PyJsonic_JsonicType_iterKey(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_ARRAY) {
+    } else if (node->type == JSONIC_ARRAY) {
         pyNode = PyObject_CallObject(
             (PyObject *) &PyJsonic_JsonicType,
             Py_BuildValue("(Oi)", self->json, 0)
@@ -344,13 +344,13 @@ PyJsonic_JsonicType_iterKey(
         ((PyJsonic_JsonicObject *) pyNode)->json_type = node->type;
 
         return pyNode;
-    } else if (node->type == JSONIC_NODE_TYPE_STRING) {
+    } else if (node->type == JSONIC_STRING) {
         return PyUnicode_FromString(node->val);
-    } else if (node->type == JSONIC_NODE_TYPE_NUMBER) {
+    } else if (node->type == JSONIC_NUMBER) {
         return PyFloat_FromDouble(atof(node->val));
-    } else if (node->type == JSONIC_NODE_TYPE_BOOLEAN) {
+    } else if (node->type == JSONIC_BOOLEAN) {
         return PyBool_FromLong(node->val[0] == '1');
-    } else if (node->type == JSONIC_NODE_TYPE_NULL) {
+    } else if (node->type == JSONIC_NULL) {
         return PyObject_CallObject((PyObject *) &PyJsonic_NullType, NULL);
     }
 
@@ -383,8 +383,8 @@ PyInit_jsonic(void) {
     }
     PyModule_AddObject(module, "Null", (PyObject *)&PyJsonic_NullType);
     PyModule_AddStringConstant(module, "version", PYJSONIC_VERSION);
-    PyModule_AddIntConstant(module, "TYPE_OBJECT", JSONIC_NODE_TYPE_OBJECT);
-    PyModule_AddIntConstant(module, "TYPE_ARRAY", JSONIC_NODE_TYPE_ARRAY);
+    PyModule_AddIntConstant(module, "TYPE_OBJECT", JSONIC_OBJECT);
+    PyModule_AddIntConstant(module, "TYPE_ARRAY", JSONIC_ARRAY);
 
     return module;
 }
